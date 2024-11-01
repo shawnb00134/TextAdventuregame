@@ -10,24 +10,32 @@ package edu.westga.cs3211.text_adventure_game.model;
  */
 public class Location {
 
-	private Hazard roomHazard;
+	private boolean firstTimeEntry;
+	private String roomDescription1;
+	private String roomDescription2;
+	private String[] connectedRooms;
 	private Boolean hasHazard;
+	private Hazard roomHazard;
+	private Boolean isGoal;
 	
 	/**
-	 * Basic Location constructor with no hazards by default.
-	 */
-	public Location() {
-		this.hasHazard = false;
-	}
-	
-	/**
-	 * Constructor for Location possibly with a hazard.
+	 * Standard constructor for room with needed attributes
 	 * 
-	 * @param hasHazard true if room has hazard, otherwise false
+	 * @param description1 the initial description of the room when the player first enters
+	 * @param description2 the description of the room if the player has already been prior
+	 * @param connectedRooms String array of connected rooms
+	 * @param hasHazard does the room have a hazard
+	 * @param hazard the hazard attached to the room
+	 * @param goalStatus says if the room is the goal or not
 	 */
-	public Location(Boolean hasHazard) {
-		this.roomHazard = new Hazard();
+	public Location(String description1, String description2, String[] connectedRooms, Boolean hasHazard, Hazard hazard, Boolean goalStatus) {
+		this.firstTimeEntry = true;
+		this.roomDescription1 = description1;
+		this.roomDescription2 = description2;
+		this.connectedRooms = connectedRooms;
 		this.hasHazard = hasHazard;
+		this.roomHazard = hazard;
+		this.isGoal = goalStatus;
 	}
 	
 	/**
