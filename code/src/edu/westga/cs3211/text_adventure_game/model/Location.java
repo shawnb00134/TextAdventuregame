@@ -10,32 +10,60 @@ package edu.westga.cs3211.text_adventure_game.model;
  */
 public class Location {
 
+	private String roomName;
 	private boolean firstTimeEntry;
 	private String roomDescription1;
 	private String roomDescription2;
 	private String[] connectedRooms;
 	private Boolean hasHazard;
-	private Hazard roomHazard;
+	private String roomHazard;
 	private Boolean isGoal;
 	
 	/**
 	 * Standard constructor for room with needed attributes
 	 * 
+	 * @param name the name of the room which will be used a the key in a hashmap
 	 * @param description1 the initial description of the room when the player first enters
 	 * @param description2 the description of the room if the player has already been prior
 	 * @param connectedRooms String array of connected rooms
 	 * @param hasHazard does the room have a hazard
-	 * @param hazard the hazard attached to the room
+	 * @param hazardName the hazard attached to the room used a key
 	 * @param goalStatus says if the room is the goal or not
 	 */
-	public Location(String description1, String description2, String[] connectedRooms, Boolean hasHazard, Hazard hazard, Boolean goalStatus) {
+	public Location(String name, String description1, String description2, String[] connectedRooms, Boolean hasHazard, String hazardName, Boolean goalStatus) {
+		this.roomName = name;
 		this.firstTimeEntry = true;
 		this.roomDescription1 = description1;
 		this.roomDescription2 = description2;
 		this.connectedRooms = connectedRooms;
 		this.hasHazard = hasHazard;
-		this.roomHazard = hazard;
+		this.roomHazard = hazardName;
 		this.isGoal = goalStatus;
+	}
+	
+	/**
+	 * Gets the name of the room to use as a key
+	 * 
+	 * @return roomName
+	 */
+	public String getRoomName() {
+		return this.roomName;
+	}
+	
+	/**
+	 * Checks to see if the room has been visited for the firse time
+	 * 
+	 * @return firstTimeEntry
+	 */
+	public boolean getFirstVisit() {
+		return this.firstTimeEntry;
+	}
+	
+	/**
+	 * Sets the firstTimeEntry to false once the player has entered the room
+	 */
+	public void setVisited() {
+		this.firstTimeEntry = false;
 	}
 	
 	/**
@@ -54,18 +82,7 @@ public class Location {
 	 * @return hazardDescription if hasHazard is true, otherwise default description
 	 */
 	public String getHazardDescription() {
-		//TODO: implement hazard description
-		return null;
+		return this.roomDescription1;
 	}
 	
-	/**
-	 * Gets the hazard damage value if a hazard is in the room. If no hazard if in the room
-	 * then it will not affect the player.
-	 * 
-	 * @return hazardDamageValue if hasHazard is true, otherwise return 0
-	 */
-	public int getHazardDamageValue() {
-		//TODO: implement hazard damage
-		return 0;
-	}
 }
