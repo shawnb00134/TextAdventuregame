@@ -51,19 +51,25 @@ public class Location {
 	}
 	
 	/**
+	 * Returns the appropriate room description based on if the room has initially or returned
+	 * 
+	 * @return description1 if firstTimeEntry == true, description2 if firstTimeEntry == false
+	 */
+	public String getRoomDescription() {
+		if (this.firstTimeEntry) {
+			this.firstTimeEntry = false;
+			return this.roomDescription1;
+		}
+		return this.roomDescription2;
+	}
+	
+	/**
 	 * Checks to see if the room has been visited for the firse time
 	 * 
 	 * @return firstTimeEntry
 	 */
 	public boolean getFirstVisit() {
 		return this.firstTimeEntry;
-	}
-	
-	/**
-	 * Sets the firstTimeEntry to false once the player has entered the room
-	 */
-	public void setVisited() {
-		this.firstTimeEntry = false;
 	}
 	
 	/**
@@ -79,10 +85,23 @@ public class Location {
 	 * Gets the description of the hazard if one is there. If no hazard is in the room
 	 * then a default message will be sent back.
 	 *  
-	 * @return hazardDescription if hasHazard is true, otherwise default description
+	 * @return getHazardName if hasHazard is true, otherwise default description
 	 */
-	public String getHazardDescription() {
-		return this.roomDescription1;
+	public String getHazardName() {
+		if (this.hasHazard) {
+			return this.getHazardName();
+		}
+//		return "No hazard present";
+		return null;
+	}
+	
+	/**
+	 * Returns if the room is the goal room.
+	 * 
+	 * @return true if room is goal
+	 */
+	public boolean getIsGoal() {
+		return this.isGoal;
 	}
 	
 }
