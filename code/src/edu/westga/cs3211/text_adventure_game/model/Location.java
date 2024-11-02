@@ -16,7 +16,7 @@ public class Location {
 	private String roomDescription2;
 	private String[] connectedRooms;
 	private Boolean hasHazard;
-	private String roomHazard;
+	private String hazardName;
 	private Boolean isGoal;
 	
 	/**
@@ -37,7 +37,7 @@ public class Location {
 		this.roomDescription2 = description2;
 		this.connectedRooms = connectedRooms;
 		this.hasHazard = hasHazard;
-		this.roomHazard = hazardName;
+		this.hazardName = hazardName;
 		this.isGoal = goalStatus;
 	}
 	
@@ -89,7 +89,7 @@ public class Location {
 	 */
 	public String getHazardName() {
 		if (this.hasHazard) {
-			return this.getHazardName();
+			return this.hazardName;
 		}
 //		return "No hazard present";
 		return null;

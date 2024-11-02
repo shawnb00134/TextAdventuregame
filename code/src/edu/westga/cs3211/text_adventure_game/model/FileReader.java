@@ -140,20 +140,20 @@ public class FileReader {
 	}
 	
 	/**
-	 * Gets the locations in a hashmap
+	 * Gets the locations in a HashMap
 	 * 
 	 * @return gameLocations
 	 */
-	public HashMap getLocationMap() {
+	public HashMap<String, Location> getLocationMap() {
 		return this.gameLocations;
 	}
 	
 	/**
-	 * Gets the hazards in a hashmap
+	 * Gets the hazards in a HashMap
 	 * 
 	 * @return hazards
 	 */
-	public HashMap getHazards() {
+	public HashMap<String, Hazard> getHazards() {
 		return this.hazards;
 	}
 }
