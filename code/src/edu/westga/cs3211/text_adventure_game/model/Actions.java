@@ -9,22 +9,50 @@ package edu.westga.cs3211.text_adventure_game.model;
  * @version Fall 2024
  */
 public enum Actions {
-	NORTH("MOVE NORTH"),
-	SOUTH("MOVE SOUTH"),
-	EAST("MOVE EAST"),
-	WEST("MOVE WEST");
+	NORTH("MOVE NORTH", 0),
+	SOUTH("MOVE SOUTH", 1),
+	EAST("MOVE EAST", 2),
+	WEST("MOVE WEST", 3);
 		
 	private String action;
+	private int indexValue;
 	
-	Actions(String action) {
+	Actions(String action, int index) {
 		this.action = action;
+		this.indexValue = index;
 	}
 	
 	/**
 	 * Returns a single string for the action available.
-	 * @return action
+	 * 
+	 * @return action the String value of the direction
 	 */
 	public String toString() {
 		return this.action;
+	}
+	
+	/**
+	 * Returns the index value of the movement choice.
+	 * 
+	 * @return indexValue the value of the direction
+	 */
+	public int getIndexValue() {
+		return this.indexValue;
+	}
+	
+	/**
+	 * Returns the proper String value to the index.
+	 * 
+	 * @param index of the available room.
+	 * 
+	 * @return action String
+	 */
+	public String getActionByIndex(int index) {
+		for (Actions action : Actions.values()) {
+			if (action.getIndexValue() == index) {
+				return action.toString();
+			}
+		}
+		return null;
 	}
 }

@@ -88,7 +88,6 @@ public class FileReader {
 				default:
 					Location newLocation = new Location(name, description1, description2, connectedRooms, hazardFlag, attachedHazard, isGoal);
 					this.gameLocations.put(newLocation.getRoomName(), newLocation);
-					System.out.println(this.gameLocations.size());
 					lineCounter = 0;
 					break;
 				}

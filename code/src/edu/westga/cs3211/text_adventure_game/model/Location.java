@@ -73,6 +73,15 @@ public class Location {
 	}
 	
 	/**
+	 * Returns the String array of connected rooms.
+	 * 
+	 * @return connectedRooms
+	 */
+	public String[] getConnectedRooms() {
+		return this.connectedRooms;
+	}
+	
+	/**
 	 * Checks to see if the room does or does not have a hazard attached.
 	 * 
 	 * @return true if hazard, otherwise false

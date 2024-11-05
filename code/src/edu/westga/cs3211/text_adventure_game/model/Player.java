@@ -18,4 +18,13 @@ public class Player {
 	public Player() {
 		this.playerHitPoints = 10;
 	}
+	
+	/**
+	 * Reduces the Player's hit points by the damage value of the hazard. 
+	 * 
+	 * @param damage the damage value of the hazard
+	 */
+	public void reducePlayerHitPoint(int damage) {
+		this.playerHitPoints = this.playerHitPoints - damage;
+	}
 }
