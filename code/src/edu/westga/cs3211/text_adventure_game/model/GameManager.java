@@ -92,7 +92,7 @@ public class GameManager {
 		
 		for (int index = 0; index < options.length; index++) {
 			if (!options[index].isBlank()) {
-				this.movementOptions.add(Actions.toString());
+				this.movementOptions.add(this.toString());
 			}
 		}
 	}

@@ -64,15 +64,6 @@ public class Location {
 	}
 	
 	/**
-	 * Checks to see if the room has been visited for the firse time
-	 * 
-	 * @return firstTimeEntry
-	 */
-	public boolean getFirstVisit() {
-		return this.firstTimeEntry;
-	}
-	
-	/**
 	 * Returns the String array of connected rooms.
 	 * 
 	 * @return connectedRooms

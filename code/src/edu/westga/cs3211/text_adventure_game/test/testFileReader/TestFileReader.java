@@ -3,8 +3,10 @@ package edu.westga.cs3211.text_adventure_game.test.testFileReader;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
+import java.io.FileNotFoundException;
 import java.util.HashMap;
 
+import org.junit.Assert;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -19,8 +21,9 @@ public class TestFileReader {
 	
 	@BeforeAll
 	public static void init() {
-//		FileReader testRead = new FileReader("src/edu/westga/cs3211/text_adventure_game/assets/testLocations.txt", "src/edu/westga/cs3211/text_adventure_game//assets/testHazards.txt");
-		FileReader testRead = new FileReader("src/edu/westga/cs3211/text_adventure_game/assets/testLocations.txt", "");
+		FileReader testRead = new FileReader("src/edu/westga/cs3211/text_adventure_game/assets/testLocations.txt", 
+				"src/edu/westga/cs3211/text_adventure_game//assets/testHazards.txt");
+//		FileReader testRead = new FileReader("src/edu/westga/cs3211/text_adventure_game/assets/testLocations.txt", "");
 		gameLocations = testRead.getLocationMap();
 		gameHazards = testRead.getHazards();
 	}
@@ -99,5 +102,46 @@ public class TestFileReader {
 		assertNotEquals(callLocation.getHazardCheck(), gameLocations.get("SmokeRoom").getHazardCheck());
 		assertNotEquals(callLocation.getRoomDescription(), gameLocations.get("SmokeRoom").getRoomDescription());
 		assertNotEquals(callLocation.getIsGoal(), gameLocations.get("SmokeRoom").getIsGoal());
+	}
+	
+	@Test
+	public void validHazard() {
+		String name = "SmokeHazard";
+		String description = "The room quickly fills with smoke. You cannot see any details in the room.";
+		int damageValue = 0;
+		Hazard callHazard = new Hazard(name, description, damageValue);
+		
+		assertEquals(callHazard.getHazardName(), gameHazards.get(callHazard.getHazardName()).getHazardName());
+		assertEquals(callHazard.getHazardDescription(), gameHazards.get(callHazard.getHazardName()).getHazardDescription());
+		assertEquals(callHazard.getHazardDamageValue(), gameHazards.get(callHazard.getHazardName()).getHazardDamageValue());
+	}
+	
+	@Test
+	public void invalidHazard() {
+		String name = "SmokeHazard";
+		String description = "The room quickly fills with smoke. You cannot see any details in the room.";
+		int damageValue = 0;
+		Hazard callHazard = new Hazard(name, description, damageValue);
+		
+		assertNotEquals(callHazard.getHazardName(), gameHazards.get("DartHazard").getHazardName());
+		assertNotEquals(callHazard.getHazardDescription(), gameHazards.get("DartHazard").getHazardDescription());
+		assertNotEquals(callHazard.getHazardDamageValue(), gameHazards.get("DartHazard").getHazardDamageValue());
+	}
+	
+	@Test
+	public void gameLocationsFileNotFoundException() throws FileNotFoundException {
+		FileReader testRead = new FileReader("", 
+				"src/edu/westga/cs3211/text_adventure_game//assets/testHazards.txt");
+	}
+	
+	@Test
+	public void hazardLocationFileNotFoundException() throws FileNotFoundException {
+		FileReader testRead = new FileReader("src/edu/westga/cs3211/text_adventure_game/assets/testLocations.txt", 
+				"");
+	}
+	
+	@Test
+	public void bothFileNotFoundException() throws FileNotFoundException {
+		FileReader testRead = new FileReader("", "");
 	}
 }

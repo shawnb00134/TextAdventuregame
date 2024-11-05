@@ -26,5 +26,18 @@ public class Player {
 	 */
 	public void reducePlayerHitPoint(int damage) {
 		this.playerHitPoints = this.playerHitPoints - damage;
+		
+		if (this.playerHitPoints < 0) {
+			this.playerHitPoints = 0;
+		}
+	}
+	
+	/**
+	 * Returns the current HP of the player.
+	 * 
+	 * @return playerHitPoints
+	 */
+	public int getPlayerHitPoints() {
+		return this.playerHitPoints;
 	}
 }

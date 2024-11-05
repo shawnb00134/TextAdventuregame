@@ -23,6 +23,7 @@ public class TestLocation {
 		assertEquals(name, testLocation.getRoomName());
 		assertEquals(descriptionOne, testLocation.getRoomDescription());
 		assertEquals(descriptionTwo, testLocation.getRoomDescription());
+		assertEquals(connectedRooms, testLocation.getConnectedRooms());
 		assertEquals(hasHazard, testLocation.getHazardCheck());
 		assertNull(testLocation.getHazardName());
 		assertEquals(isGoal, testLocation.getIsGoal());
@@ -41,6 +42,7 @@ public class TestLocation {
 		assertNotEquals("Room2", testLocation.getRoomName());
 		assertNotEquals("Square", testLocation.getRoomDescription());
 		assertNotEquals("Still square", testLocation.getRoomDescription());
+		assertEquals(connectedRooms, testLocation.getConnectedRooms());
 		assertNotEquals(true, testLocation.getHazardCheck());
 		assertNotEquals("Smoke", testLocation.getHazardName());
 		assertNotEquals(true, testLocation.getIsGoal());

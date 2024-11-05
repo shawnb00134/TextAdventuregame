@@ -121,6 +121,7 @@ public class FileReader {
 				case 1:
 					description = data;
 					lineCounter++;
+					break;
 				case 2:
 					damageValue = Integer.parseInt(data);
 					lineCounter++;

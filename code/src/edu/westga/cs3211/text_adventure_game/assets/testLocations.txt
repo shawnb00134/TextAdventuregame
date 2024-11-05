@@ -5,7 +5,7 @@ You are back at the entrence. You can move East or West.
 false
 
 false
-
+---
 SmokeRoom
 You went West. You enter a large square room with holes in the floor.
 The room is still filled with smoke.
@@ -13,7 +13,7 @@ The room is still filled with smoke.
 true
 SmokeHazard
 false
-
+---
 DartRoom
 You enter a medium sized room with many alcoves.
 You watch your step enter this room.
@@ -21,7 +21,7 @@ You watch your step enter this room.
 true
 DartHazard
 false
-
+---
 GoalRoom
 You enter a roundish room and see a cake sitting on a table in the center of the room.
 You enter a roundish room and see a cake sitting on a table in the center of the room.
@@ -29,3 +29,4 @@ DartRoom,,,
 false
 
 true
+---
