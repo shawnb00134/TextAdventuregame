@@ -24,7 +24,7 @@ false
 
 GoalRoom
 You enter a roundish room and see a cake sitting on a table in the center of the room.
-
+You enter a roundish room and see a cake sitting on a table in the center of the room.
 DartRoom,,,
 false
 
