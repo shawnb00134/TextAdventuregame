@@ -18,6 +18,8 @@ public class GameManager {
 	private final String gameLocationsFileLocation = "src/edu/westga/cs3211/text_adventure_game/assets/testLocations.txt";
 	private final String gameHazardsFileLocation = "src/edu/westga/cs3211/text_adventure_game//assets/testHazards.txt";
 	
+	private final String startingLocation = "EntryRoom";
+	
 	private ViewModel viewModel;
 	private FileReader gameFiles;
 	private Player player;
@@ -36,19 +38,32 @@ public class GameManager {
 		this.player = new Player();
 		this.gameFiles = new FileReader(this.gameLocationsFileLocation, this.gameHazardsFileLocation);
 		this.movementOptions = new ArrayList<String>();
+		
+		this.initializeGameManger();
+	}
+	
+	private void initializeGameManger() {
+		this.setGameLocationsHazards();
+		this.getLocationDescription();
+		
 	}
 	
 	private void setGameLocationsHazards()  {
 		this.gameLocations = this.gameFiles.getLocationMap();
 		this.gameHazards = this.gameFiles.getHazards();
 		
-		this.playerLocation = this.gameLocations.get("EntryRoom");
+		this.playerLocation = this.gameLocations.get(this.startingLocation);
 	}
 	
 	private String getLocationDescription() {
+		if (this.playerLocation.getHazardCheck()) {
+			this.player.reducePlayerHitPoint(this.gameHazards.get(this.playerLocation.getHazardName()).getHazardDamageValue());
+			return this.gameHazards.get(this.playerLocation.getHazardName()).getHazardDescription();
+		}
 		return this.gameLocations.get(this.playerLocation).getRoomDescription();
 	}
 	
+	// May not need
 	private boolean getHazard() {
 		return this.gameLocations.get(this.playerLocation).getHazardCheck();
 	}
@@ -58,6 +73,7 @@ public class GameManager {
 	 * 
 	 * @return hazard description
 	 */
+	// May not need
 	private String getHazardName() {
 		if (this.getHazard()) {
 			this.locationHazard = this.gameHazards.get(this.gameLocations.get(this.playerLocation).getHazardName());
@@ -65,6 +81,7 @@ public class GameManager {
 		return this.gameLocations.get(this.playerLocation).getHazardName();
 	}
 	
+	// May not need
 	private String getHazardDescription() {
 		return this.gameHazards.get(this.locationHazard).getHazardDescription();
 	}
@@ -95,5 +112,16 @@ public class GameManager {
 				this.movementOptions.add(this.toString());
 			}
 		}
+	}
+	
+	/**
+	 * Returns the list of movement options to the ViewModel
+	 * 
+	 * @return movementOptions
+	 */
+	public List<String> getMovementOptions() {
+		this.getActionList();
+		
+		return this.movementOptions;
 	}
 }

@@ -95,7 +95,7 @@ public class FileReader {
 			
 			fileReader.close();
 		} catch (FileNotFoundException fnfException) {
-			System.err.println("FILE NOT FOUND.");
+			System.err.println("FILE NOT FOUND: WORLD MAP");
 		}
 	}
 	
@@ -136,7 +136,7 @@ public class FileReader {
 			
 			fileReader.close();
 		} catch (FileNotFoundException fnfException) {
-			System.err.println("FILE NOT FOUND.");
+			System.err.println("FILE NOT FOUND: HAZARDS");
 		}
 	}
 	
