@@ -63,6 +63,15 @@ public class GameManager {
 		return this.gameLocations.get(this.playerLocation).getRoomDescription();
 	}
 	
+	/**
+	 * Returns the current HP for the player.
+	 * 
+	 * @return player.getPlayerHitPoints
+	 */
+	public int getPlayerHealthPoints() {
+		return this.player.getPlayerHitPoints();
+	}
+	
 	// May not need
 	private boolean getHazard() {
 		return this.gameLocations.get(this.playerLocation).getHazardCheck();

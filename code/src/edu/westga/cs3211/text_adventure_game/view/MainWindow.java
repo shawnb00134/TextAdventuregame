@@ -2,9 +2,11 @@ package edu.westga.cs3211.text_adventure_game.view;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 
@@ -31,6 +33,9 @@ public class MainWindow {
 
     @FXML
     private TextArea textAreaMainText;
+    
+    @FXML
+    private Label labelHealth;
 
     @FXML
     void initialize() {
@@ -38,6 +43,7 @@ public class MainWindow {
         assert this.comboBoxAvailableActions != null : "fx:id=\"comboBox_AvailableActions\" was not injected: check your FXML file 'MainWindow.fxml'.";
         assert this.imageHealth != null : "fx:id=\"image_Health\" was not injected: check your FXML file 'MainWindow.fxml'.";
         assert this.textAreaMainText != null : "fx:id=\"textArea_MainText\" was not injected: check your FXML file 'MainWindow.fxml'.";
+        assert this.labelHealth != null : "fx:id=\"labelHealth\" was not injected: check your FXML file 'MainWindow.fxml'.";
 
     }
 }

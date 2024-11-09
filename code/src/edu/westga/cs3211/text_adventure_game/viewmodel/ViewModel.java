@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.westga.cs3211.text_adventure_game.model.GameManager;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -19,6 +21,7 @@ public class ViewModel {
 	
 	private StringProperty locationDescription;
 	private List<SimpleStringProperty> movementDirection;
+	private IntegerProperty playerHealth;
 	
 	private GameManager gameManager;
 	
@@ -28,6 +31,7 @@ public class ViewModel {
 	public ViewModel() {
 		this.locationDescription = new SimpleStringProperty();
 		this.movementDirection = new ArrayList<SimpleStringProperty>();
+		this.playerHealth = new SimpleIntegerProperty();
 		this.gameManager = new GameManager();
 	}
 	
@@ -59,5 +63,18 @@ public class ViewModel {
 				this.movementDirection.add((SimpleStringProperty) directionProperty);
 			}
 		}
+	}
+	
+	/**
+	 * Returns the player's health.
+	 * 
+	 * @return this.playerHealth
+	 */
+	public IntegerProperty getPlayerHealthProperty() {
+		return this.playerHealth;
+	}
+	
+	private void setPlayerHealthProperty() {
+		this.playerHealth.set(this.gameManager.getPlayerHealthPoints());
 	}
 }

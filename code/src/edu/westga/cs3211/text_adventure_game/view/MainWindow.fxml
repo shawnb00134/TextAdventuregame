@@ -24,5 +24,10 @@
          </font>
       </Label>
       <Button fx:id="buttonTakeAction" layoutX="300.0" layoutY="400.0" mnemonicParsing="false" text="Take Action" />
+      <Label fx:id="labelHealth" layoutX="538.0" layoutY="82.0" prefHeight="25.0" prefWidth="52.0" textAlignment="CENTER">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
