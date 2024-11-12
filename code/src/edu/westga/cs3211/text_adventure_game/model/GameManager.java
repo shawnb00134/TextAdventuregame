@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import edu.westga.cs3211.text_adventure_game.viewmodel.ViewModel;
-
 /**
  * Text Adventure Game - Game Manager
  * 
@@ -20,7 +18,6 @@ public class GameManager {
 	
 	private final String startingLocation = "EntryRoom";
 	
-	private ViewModel viewModel;
 	private FileReader gameFiles;
 	private Player player;
 	private Location playerLocation;
@@ -34,7 +31,6 @@ public class GameManager {
 	 * Empty GameManager constructor
 	 */
 	public GameManager() {
-		this.viewModel = new ViewModel();
 		this.player = new Player();
 		this.gameFiles = new FileReader(this.gameLocationsFileLocation, this.gameHazardsFileLocation);
 		this.movementOptions = new ArrayList<String>();

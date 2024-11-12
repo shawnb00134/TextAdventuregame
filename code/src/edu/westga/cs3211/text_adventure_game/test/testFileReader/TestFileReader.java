@@ -22,7 +22,6 @@ public class TestFileReader {
 	public static void init() {
 		FileReader testRead = new FileReader("src/edu/westga/cs3211/text_adventure_game/assets/testLocations.txt", 
 				"src/edu/westga/cs3211/text_adventure_game//assets/testHazards.txt");
-//		FileReader testRead = new FileReader("src/edu/westga/cs3211/text_adventure_game/assets/testLocations.txt", "");
 		gameLocations = testRead.getLocationMap();
 		gameHazards = testRead.getHazards();
 	}
