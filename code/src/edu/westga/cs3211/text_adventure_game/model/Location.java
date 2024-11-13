@@ -91,7 +91,6 @@ public class Location {
 		if (this.hasHazard) {
 			return this.hazardName;
 		}
-//		return "No hazard present";
 		return null;
 	}
 	

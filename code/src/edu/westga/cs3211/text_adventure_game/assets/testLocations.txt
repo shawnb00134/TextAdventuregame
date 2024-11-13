@@ -1,6 +1,6 @@
 EntryRoom
 You enter a mysterious dungeon and a stone slab shuts behind you. You face South and you see you can move East or West.
-You are back at the entrence. You can move East or West.
+You are back at the entrance. You can move East or West.
 ,DartRoom,,SmokeRoom
 false
 

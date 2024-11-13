@@ -40,7 +40,7 @@ public class GameManager {
 	
 	private void initializeGameManger() {
 		this.setGameLocationsHazards();
-		this.getLocationDescription();
+//		this.getLocationDescription();
 		
 	}
 	
@@ -51,12 +51,17 @@ public class GameManager {
 		this.playerLocation = this.gameLocations.get(this.startingLocation);
 	}
 	
-	private String getLocationDescription() {
+	/**
+	 * Gets the room's description to be displayed.
+	 * 
+	 * @return gameLocations.getRoomDescription
+	 */
+	public String getLocationDescription() {
 		if (this.playerLocation.getHazardCheck()) {
 			this.player.reducePlayerHitPoint(this.gameHazards.get(this.playerLocation.getHazardName()).getHazardDamageValue());
 			return this.gameHazards.get(this.playerLocation.getHazardName()).getHazardDescription();
 		}
-		return this.gameLocations.get(this.playerLocation).getRoomDescription();
+		return this.gameLocations.get(this.playerLocation.getRoomName()).getRoomDescription();
 	}
 	
 	/**
@@ -70,7 +75,7 @@ public class GameManager {
 	
 	// May not need
 	private boolean getHazard() {
-		return this.gameLocations.get(this.playerLocation).getHazardCheck();
+		return this.gameLocations.get(this.playerLocation.getRoomName()).getHazardCheck();
 	}
 	
 	/**
@@ -81,14 +86,14 @@ public class GameManager {
 	// May not need
 	private String getHazardName() {
 		if (this.getHazard()) {
-			this.locationHazard = this.gameHazards.get(this.gameLocations.get(this.playerLocation).getHazardName());
+			this.locationHazard = this.gameHazards.get(this.gameLocations.get(this.playerLocation.getRoomName()).getHazardName());
 		}
-		return this.gameLocations.get(this.playerLocation).getHazardName();
+		return this.gameLocations.get(this.playerLocation.getRoomName()).getHazardName();
 	}
 	
 	// May not need
 	private String getHazardDescription() {
-		return this.gameHazards.get(this.locationHazard).getHazardDescription();
+		return this.gameHazards.get(this.locationHazard.getHazardName()).getHazardDescription();
 	}
 	
 	/**
@@ -109,7 +114,10 @@ public class GameManager {
 		}
 	}
 	
-	private void getActionList() {
+	/**
+	 * Gets the list of all possible directions the player can move.
+	 */
+	public void getActionList() {
 		String[] options = this.playerLocation.getConnectedRooms();
 		
 		for (int index = 0; index < options.length; index++) {
