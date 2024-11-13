@@ -57,8 +57,15 @@ public class GameManager {
 	 * @return gameLocations.getRoomDescription
 	 */
 	public String getLocationDescription() {
+		if (this.playerLocation == null) {
+			System.out.println("null");
+		}
+		
 		if (this.playerLocation.getHazardCheck()) {
+			System.out.println("has hazard");
+			System.out.println(this.player.getPlayerHitPoints());
 			this.player.reducePlayerHitPoint(this.gameHazards.get(this.playerLocation.getHazardName()).getHazardDamageValue());
+			System.out.println(this.player.getPlayerHitPoints());
 			return this.gameHazards.get(this.playerLocation.getHazardName()).getHazardDescription();
 		}
 		return this.gameLocations.get(this.playerLocation.getRoomName()).getRoomDescription();
@@ -105,12 +112,21 @@ public class GameManager {
 		String[] connectedRoom = this.playerLocation.getConnectedRooms();
 		if (action.equals(Actions.NORTH)) {
 			this.playerLocation = this.gameLocations.get(connectedRoom[action.getIndexValue()]);
+			System.out.println("north");
 		} else if (action.equals(Actions.EAST)) {
+			if (this.gameLocations.get(connectedRoom[action.getIndexValue()]) == null) {
+				System.out.println("new location null");
+			}
+			
 			this.playerLocation = this.gameLocations.get(connectedRoom[action.getIndexValue()]);
+//			System.out.println(this.playerLocation.getRoomName());
+			System.out.println("east");
 		} else if (action.equals(Actions.SOUTH)) {
 			this.playerLocation = this.gameLocations.get(connectedRoom[action.getIndexValue()]);
+			System.out.println("south");
 		} else {
 			this.playerLocation = this.gameLocations.get(connectedRoom[action.getIndexValue()]);
+			System.out.println("west");
 		}
 	}
 	

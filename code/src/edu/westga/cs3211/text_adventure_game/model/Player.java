@@ -27,9 +27,11 @@ public class Player {
 	public void reducePlayerHitPoint(int damage) {
 		this.playerHitPoints = this.playerHitPoints - damage;
 		
+		System.out.println(this.playerHitPoints);
 		if (this.playerHitPoints < 0) {
 			this.playerHitPoints = 0;
 		}
+		System.out.println(this.playerHitPoints);
 	}
 	
 	/**

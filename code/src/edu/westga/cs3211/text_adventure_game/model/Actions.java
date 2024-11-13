@@ -10,8 +10,8 @@ package edu.westga.cs3211.text_adventure_game.model;
  */
 public enum Actions {
 	NORTH("MOVE NORTH", 0),
-	SOUTH("MOVE SOUTH", 1),
-	EAST("MOVE EAST", 2),
+	EAST("MOVE EAST", 1),
+	SOUTH("MOVE SOUTH", 2),
 	WEST("MOVE WEST", 3);
 		
 	private String action;
