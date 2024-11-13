@@ -30,7 +30,7 @@ public class TestFileReader {
 	public void validLocationTestNoHazardNotGoal() {
 		String name = "EntryRoom";
 		String description1 = "You enter a mysterious dungeon and a stone slab shuts behind you. You face South and you see you can move East or West.";
-		String description2 = "You are back at the entrence. You can move East or West.";
+		String description2 = "You are back at the entrance. You can move East or West.";
 		String[] connectedRooms = new String[] {"", "DartRoom", "", "SmokeRoom"};
 		boolean hasHazard = false;
 		String hazardName = "";

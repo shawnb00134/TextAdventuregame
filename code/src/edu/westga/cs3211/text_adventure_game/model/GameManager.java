@@ -22,7 +22,8 @@ public class GameManager {
 	private Player player;
 	private Location playerLocation;
 	private Hazard locationHazard;
-	private List<String> movementOptions;
+//	private List<String> movementOptions;
+	private List<Actions> movementOptions;
 	
 	private HashMap<String, Location> gameLocations;
 	private HashMap<String, Hazard> gameHazards;
@@ -33,15 +34,14 @@ public class GameManager {
 	public GameManager() {
 		this.player = new Player();
 		this.gameFiles = new FileReader(this.gameLocationsFileLocation, this.gameHazardsFileLocation);
-		this.movementOptions = new ArrayList<String>();
+//		this.movementOptions = new ArrayList<String>();
+		this.movementOptions = new ArrayList<Actions>();
 		
 		this.initializeGameManger();
 	}
 	
 	private void initializeGameManger() {
 		this.setGameLocationsHazards();
-//		this.getLocationDescription();
-		
 	}
 	
 	private void setGameLocationsHazards()  {
@@ -57,15 +57,8 @@ public class GameManager {
 	 * @return gameLocations.getRoomDescription
 	 */
 	public String getLocationDescription() {
-		if (this.playerLocation == null) {
-			System.out.println("null");
-		}
-		
 		if (this.playerLocation.getHazardCheck()) {
-			System.out.println("has hazard");
-			System.out.println(this.player.getPlayerHitPoints());
 			this.player.reducePlayerHitPoint(this.gameHazards.get(this.playerLocation.getHazardName()).getHazardDamageValue());
-			System.out.println(this.player.getPlayerHitPoints());
 			return this.gameHazards.get(this.playerLocation.getHazardName()).getHazardDescription();
 		}
 		return this.gameLocations.get(this.playerLocation.getRoomName()).getRoomDescription();
@@ -81,27 +74,9 @@ public class GameManager {
 	}
 	
 	// May not need
-	private boolean getHazard() {
-		return this.gameLocations.get(this.playerLocation.getRoomName()).getHazardCheck();
-	}
-	
-	/**
-	 * Gets the description of the hazard the player encounters.
-	 * 
-	 * @return hazard description
-	 */
-	// May not need
-	private String getHazardName() {
-		if (this.getHazard()) {
-			this.locationHazard = this.gameHazards.get(this.gameLocations.get(this.playerLocation.getRoomName()).getHazardName());
-		}
-		return this.gameLocations.get(this.playerLocation.getRoomName()).getHazardName();
-	}
-	
-	// May not need
-	private String getHazardDescription() {
-		return this.gameHazards.get(this.locationHazard.getHazardName()).getHazardDescription();
-	}
+//	private boolean getHazard() {
+//		return this.gameLocations.get(this.playerLocation.getRoomName()).getHazardCheck();
+//	}
 	
 	/**
 	 * Moves the player from one location to the next based on their choice.
@@ -111,22 +86,21 @@ public class GameManager {
 	public void movePlayer(Actions action) {
 		String[] connectedRoom = this.playerLocation.getConnectedRooms();
 		if (action.equals(Actions.NORTH)) {
+//			System.out.println("NORTH");
 			this.playerLocation = this.gameLocations.get(connectedRoom[action.getIndexValue()]);
-			System.out.println("north");
+//			this.getLocationDescription();
 		} else if (action.equals(Actions.EAST)) {
-			if (this.gameLocations.get(connectedRoom[action.getIndexValue()]) == null) {
-				System.out.println("new location null");
-			}
-			
+//			System.out.println("EAST");
 			this.playerLocation = this.gameLocations.get(connectedRoom[action.getIndexValue()]);
-//			System.out.println(this.playerLocation.getRoomName());
-			System.out.println("east");
+//			this.getLocationDescription();
 		} else if (action.equals(Actions.SOUTH)) {
+//			System.out.println("SOUTH");
 			this.playerLocation = this.gameLocations.get(connectedRoom[action.getIndexValue()]);
-			System.out.println("south");
+//			this.getLocationDescription();
 		} else {
+//			System.out.println("WEST");
 			this.playerLocation = this.gameLocations.get(connectedRoom[action.getIndexValue()]);
-			System.out.println("west");
+//			this.getLocationDescription();
 		}
 	}
 	
@@ -138,7 +112,8 @@ public class GameManager {
 		
 		for (int index = 0; index < options.length; index++) {
 			if (!options[index].isBlank()) {
-				this.movementOptions.add(this.toString());
+				
+				this.movementOptions.add(Actions.getActionByIndex(index));
 			}
 		}
 	}
@@ -148,9 +123,18 @@ public class GameManager {
 	 * 
 	 * @return movementOptions
 	 */
-	public List<String> getMovementOptions() {
+	public List<Actions> getMovementOptions() {
 		this.getActionList();
 		
 		return this.movementOptions;
+	}
+	
+	/**
+	 * Checks the player's current location if it is the goal.
+	 * 
+	 * @return true if player.getIsGoal() == true, else false
+	 */
+	public Boolean checkRoomForGoal() {
+		return this.playerLocation.getIsGoal();
 	}
 }

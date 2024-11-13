@@ -54,7 +54,7 @@ public class ViewModel {
 	}
 	
 	private void setMovementDirectionList() {
-		List<String> movementDirections = this.gameManager.getMovementOptions();
+//		List<Actions> movementDirections = this.gameManager.getMovementOptions();
 		
 		for (String direction : movementDirections) {
 			if (direction != null && !direction.isBlank()) {
