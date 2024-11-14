@@ -1,103 +1,103 @@
 EntryRoom
 You enter the dungeon. An iron gate slides down and blocks your way back.
 You see the iron gate still blocks your path out.
-Hall-01,Hall-03,Room-03,
+Hall01,Hall03,Room02,
 false
 
 false
 ---
-Hall-01
+Hall01
 You hit a T junction. A room to the West and a tight hall to the East.
 You are back at the T junction.
-,Hall-02,EntryRoom,Room-01
+,Hall02,EntryRoom,Room01
 false
 
 false
 ---
-Room-01
+Room01
 You enter the room and see a table with a few chairs around it. Decaying food covered in flies.
 The room is still a mess of rotten food.
-,Hall-01,,
+,Hall01,,
 true
 GasHazard
 false
 ---
-Hall-02
+Hall02
 The hall is a tight fit and you hit a dead end.
 You hit the dead end again.
-,,,Hall-01
+,,,Hall01
 false
 
 false
 ---
-Room-02
+Room02
 You enter to see a room full of waste high piles of soiled laundry. A myriad of colors staining from messes caused by sickening acts.
 You enter the laundry room again. You remember you should do some laundry.
-EntryRoom,,,Room-04
+EntryRoom,,,Room03
 true
 DartHazard
 false
 ---
-Room-03
+Room03
 You go down a narrow hall and enter a dark room full of candles not really illuminating anything. You think you see pentagrams on the walls.
 You go back to the "Hell Room".
-,Room-02,,
+,Room02,,
 false
 
 false
 ---
-Hall-03
+Hall03
 You come to a four-way intersection. You're not sure which way to go.
 Back at the four-way intersection.
-Room-04,Room-05,Room-06,EntryRoom
+Room04,Room05,Room07,EntryRoom
 false
 
 false
 ---
-Room-04
+Room04
 You see it's simply a storage area.
 Back at the storage room.
-Hall-03
+,,Hall03,
 false
 
 false
 ---
-Room-05
+Room05
 You see a water feature in the center of the small room.
 You know the floor is wet.
-Room-06,,,Hall-03
+Room06,,,Hall03
 true
 SlipHazard
 false
 ---
-Room-06
+Room06
 You see a destroyed bed, a dressed smashed in half, and a small fire in the corner.
 You arrive back to the destroyed bedroom.
-,,Room-05,
+,,Room05,
 true
 ArrowHazard
 false
 ---
-Room-07
+Room07
 You enter the library. So many books that were once neatly organized lay strewn all over the floor or bookshelves.
 Back to the library.
-Hall-03,Room-09,Room-08,
+Hall03,Room09,Room08,
 true
 DartHazard
 false
 ---
-Room-08
+Room08
 You open the closet and see nothing of value.
 You look in the closet again. Nothing.
-Room-07,,,
+Room07,,,
 false
 
 false
 ---
-Room-09
+Room09
 You enter a hidden room and see what you were looking for. An iron key.
 You enter a hidden room and see what you were looking for. An iron key.
-Room-07,,,
+Room07,,,
 false
 
 true

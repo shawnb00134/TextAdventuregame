@@ -23,15 +23,6 @@ public enum Actions {
 	}
 	
 	/**
-	 * Returns a single string for the action available.
-	 * 
-	 * @return action the String value of the direction
-	 */
-	public String toString() {
-		return this.action;
-	}
-	
-	/**
 	 * Returns the index value of the movement choice.
 	 * 
 	 * @return indexValue the value of the direction

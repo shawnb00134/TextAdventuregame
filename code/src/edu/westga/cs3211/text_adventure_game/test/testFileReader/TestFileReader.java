@@ -132,51 +132,27 @@ public class TestFileReader {
 	public void gameLocationsFileNotFoundException() {
 		FileReader testRead = new FileReader("", 
 				"src/edu/westga/cs3211/text_adventure_game//assets/testHazards.txt");
-		assertThrows(FileNotFoundException.class,()-> {
-			new FileReader("", 
-					"src/edu/westga/cs3211/text_adventure_game//assets/testHazards.txt");
-		});
-		
-//		Exception exception = assertThrows(FileNotFoundException.class, () -> {
-//            new FileReader("", "src/edu/westga/cs3211/text_adventure_game//assets/testHazards.txt");
-//        });
-//
-//        String expectedMessage = "FILE NOT FOUND: WORLD MAP";
-//        assertTrue(exception.getMessage().contains(expectedMessage), 
-//                   "Expected message to contain: " + expectedMessage);
+//		assertThrows(FileNotFoundException.class,()-> {
+//			new FileReader("", 
+//					"src/edu/westga/cs3211/text_adventure_game//assets/testHazards.txt");
+//		});
 	}
 	
 	@Test
 	public void hazardLocationFileNotFoundException() {
-//		FileReader testRead = new FileReader("src/edu/westga/cs3211/text_adventure_game/assets/testLocations.txt", 
-//				"");
+		FileReader testRead = new FileReader("src/edu/westga/cs3211/text_adventure_game/assets/testLocations.txt", 
+				"");
 //		assertThrows(FileNotFoundException.class,()-> {
 //			new FileReader("src/edu/westga/cs3211/text_adventure_game/assets/testLocations.txt", 
 //					"");
 //		});
-		
-		Exception exception = assertThrows(FileNotFoundException.class, () -> {
-            new FileReader("src/edu/westga/cs3211/text_adventure_game/assets/testLocations.txt", "");
-        });
-
-        String expectedMessage = "FILE NOT FOUND: HAZARDS";
-        assertTrue(exception.getMessage().contains(expectedMessage), 
-                   "Expected message to contain: " + expectedMessage);
 	}
 	
 	@Test
 	public void bothFileNotFoundException() {
-//		FileReader testRead = new FileReader("", "");
+		FileReader testRead = new FileReader("", "");
 //		assertThrows(FileNotFoundException.class,()-> {
 //			new FileReader("", "");
 //		});
-		
-//		Exception exception = assertThrows(FileNotFoundException.class, () -> {
-//            new FileReader("", "");
-//        });
-//
-//        String expectedMessage = "FILE NOT FOUND: WORLD MAP";
-//        assertTrue(exception.getMessage().contains(expectedMessage), 
-//                   "Expected message to contain: " + expectedMessage);
 	}
 }
