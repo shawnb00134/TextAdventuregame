@@ -3,11 +3,15 @@ package edu.westga.cs3211.text_adventure_game.viewmodel;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.westga.cs3211.text_adventure_game.model.Actions;
 import edu.westga.cs3211.text_adventure_game.model.GameManager;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.ListProperty;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleListProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.collections.FXCollections;
 
 /**
  * Text Adventure Game - ViewModel
@@ -20,8 +24,9 @@ import javafx.beans.property.StringProperty;
 public class ViewModel {
 	
 	private StringProperty locationDescription;
-	private List<SimpleStringProperty> movementDirection;
-	private IntegerProperty playerHealth;
+	private ListProperty<Actions> movementDirection;
+	private StringProperty playerHealth;
+	private ObjectProperty<Actions> selectedDirection;
 	
 	private GameManager gameManager;
 	
@@ -30,9 +35,42 @@ public class ViewModel {
 	 */
 	public ViewModel() {
 		this.locationDescription = new SimpleStringProperty();
-		this.movementDirection = new ArrayList<SimpleStringProperty>();
-		this.playerHealth = new SimpleIntegerProperty();
+		this.movementDirection = new SimpleListProperty<>(FXCollections.observableArrayList(new ArrayList<>()));
+		this.playerHealth = new SimpleStringProperty();
+		this.selectedDirection = new SimpleObjectProperty<Actions>();
 		this.gameManager = new GameManager();
+		
+		this.setupGame();
+	}
+	
+	private void setupGame() {
+		this.setLocationDescriptionProperty();
+		this.setMovementDirectionList();
+		this.setPlayerHealthProperty();
+	}
+	
+	/**
+	 * Moves the player
+	 */
+	public void movePlayerGetLocatinDescription() {
+		Actions selectedDirection = this.getSelectedDirection().getValue();
+		if (selectedDirection == null) {
+		    return;
+		}
+		
+		if (selectedDirection == Actions.NORTH) {
+		    this.gameManager.movePlayer(Actions.NORTH);
+		} else if (selectedDirection == Actions.EAST) {
+		    this.gameManager.movePlayer(Actions.EAST);
+		} else if (selectedDirection == Actions.SOUTH) {
+		    this.gameManager.movePlayer(Actions.SOUTH);
+		} else if (selectedDirection == Actions.WEST) {
+		    this.gameManager.movePlayer(Actions.WEST);
+		}
+				
+		this.setLocationDescriptionProperty();
+		this.setMovementDirectionList();
+		this.setPlayerHealthProperty();		
 	}
 	
 	/**
@@ -44,25 +82,26 @@ public class ViewModel {
 		return this.locationDescription;
 	}
 	
+	private void setLocationDescriptionProperty() {
+		String description = this.gameManager.getLocationDescription();
+        if (description != null) {
+            this.locationDescription.set(description);
+        }
+	}
+	
 	/**
 	 * Returns the 
 	 * 
 	 * @return movementDirection
 	 */
-	public List<SimpleStringProperty> getMovementDirectionProperty() {
+	public ListProperty<Actions> getMovementDirectionProperty() {
 		return this.movementDirection;
 	}
 	
 	private void setMovementDirectionList() {
-//		List<Actions> movementDirections = this.gameManager.getMovementOptions();
-		
-		for (String direction : movementDirections) {
-			if (direction != null && !direction.isBlank()) {
-				StringProperty directionProperty = new SimpleStringProperty();
-				directionProperty.set(direction);
-				this.movementDirection.add((SimpleStringProperty) directionProperty);
-			}
-		}
+		List<Actions> options = this.gameManager.getMovementOptions();
+        this.movementDirection.clear();
+        this.movementDirection.setValue(FXCollections.observableArrayList(options));
 	}
 	
 	/**
@@ -70,11 +109,20 @@ public class ViewModel {
 	 * 
 	 * @return this.playerHealth
 	 */
-	public IntegerProperty getPlayerHealthProperty() {
+	public StringProperty getPlayerHealthProperty() {
 		return this.playerHealth;
 	}
 	
 	private void setPlayerHealthProperty() {
-		this.playerHealth.set(this.gameManager.getPlayerHealthPoints());
+		this.playerHealth.set(Integer.toString(this.gameManager.getPlayerHealthPoints()));
+	}
+	
+	/**
+	 * Returns the selected direction
+	 * 
+	 * @return selectedDirection
+	 */
+	public ObjectProperty<Actions> getSelectedDirection() {
+		return this.selectedDirection;
 	}
 }

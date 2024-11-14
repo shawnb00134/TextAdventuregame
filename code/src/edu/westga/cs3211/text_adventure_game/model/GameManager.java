@@ -21,8 +21,6 @@ public class GameManager {
 	private FileReader gameFiles;
 	private Player player;
 	private Location playerLocation;
-	private Hazard locationHazard;
-//	private List<String> movementOptions;
 	private List<Actions> movementOptions;
 	
 	private HashMap<String, Location> gameLocations;
@@ -34,7 +32,6 @@ public class GameManager {
 	public GameManager() {
 		this.player = new Player();
 		this.gameFiles = new FileReader(this.gameLocationsFileLocation, this.gameHazardsFileLocation);
-//		this.movementOptions = new ArrayList<String>();
 		this.movementOptions = new ArrayList<Actions>();
 		
 		this.initializeGameManger();
@@ -73,11 +70,6 @@ public class GameManager {
 		return this.player.getPlayerHitPoints();
 	}
 	
-	// May not need
-//	private boolean getHazard() {
-//		return this.gameLocations.get(this.playerLocation.getRoomName()).getHazardCheck();
-//	}
-	
 	/**
 	 * Moves the player from one location to the next based on their choice.
 	 * 
@@ -85,23 +77,10 @@ public class GameManager {
 	 */
 	public void movePlayer(Actions action) {
 		String[] connectedRoom = this.playerLocation.getConnectedRooms();
-		if (action.equals(Actions.NORTH)) {
-//			System.out.println("NORTH");
-			this.playerLocation = this.gameLocations.get(connectedRoom[action.getIndexValue()]);
-//			this.getLocationDescription();
-		} else if (action.equals(Actions.EAST)) {
-//			System.out.println("EAST");
-			this.playerLocation = this.gameLocations.get(connectedRoom[action.getIndexValue()]);
-//			this.getLocationDescription();
-		} else if (action.equals(Actions.SOUTH)) {
-//			System.out.println("SOUTH");
-			this.playerLocation = this.gameLocations.get(connectedRoom[action.getIndexValue()]);
-//			this.getLocationDescription();
-		} else {
-//			System.out.println("WEST");
-			this.playerLocation = this.gameLocations.get(connectedRoom[action.getIndexValue()]);
-//			this.getLocationDescription();
-		}
+		
+		this.playerLocation = this.gameLocations.get(connectedRoom[action.getIndexValue()]);
+
+		this.movementOptions.clear();
 	}
 	
 	/**
@@ -109,6 +88,8 @@ public class GameManager {
 	 */
 	public void getActionList() {
 		String[] options = this.playerLocation.getConnectedRooms();
+		
+		this.movementOptions.clear();
 		
 		for (int index = 0; index < options.length; index++) {
 			if (!options[index].isBlank()) {

@@ -1,7 +1,9 @@
 package edu.westga.cs3211.text_adventure_game.test.testFileReader;
 
+import static org.junit.Assert.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.FileNotFoundException;
 import java.util.HashMap;
@@ -127,19 +129,54 @@ public class TestFileReader {
 	}
 	
 	@Test
-	public void gameLocationsFileNotFoundException() throws FileNotFoundException {
+	public void gameLocationsFileNotFoundException() {
 		FileReader testRead = new FileReader("", 
 				"src/edu/westga/cs3211/text_adventure_game//assets/testHazards.txt");
+		assertThrows(FileNotFoundException.class,()-> {
+			new FileReader("", 
+					"src/edu/westga/cs3211/text_adventure_game//assets/testHazards.txt");
+		});
+		
+//		Exception exception = assertThrows(FileNotFoundException.class, () -> {
+//            new FileReader("", "src/edu/westga/cs3211/text_adventure_game//assets/testHazards.txt");
+//        });
+//
+//        String expectedMessage = "FILE NOT FOUND: WORLD MAP";
+//        assertTrue(exception.getMessage().contains(expectedMessage), 
+//                   "Expected message to contain: " + expectedMessage);
 	}
 	
 	@Test
-	public void hazardLocationFileNotFoundException() throws FileNotFoundException {
-		FileReader testRead = new FileReader("src/edu/westga/cs3211/text_adventure_game/assets/testLocations.txt", 
-				"");
+	public void hazardLocationFileNotFoundException() {
+//		FileReader testRead = new FileReader("src/edu/westga/cs3211/text_adventure_game/assets/testLocations.txt", 
+//				"");
+//		assertThrows(FileNotFoundException.class,()-> {
+//			new FileReader("src/edu/westga/cs3211/text_adventure_game/assets/testLocations.txt", 
+//					"");
+//		});
+		
+		Exception exception = assertThrows(FileNotFoundException.class, () -> {
+            new FileReader("src/edu/westga/cs3211/text_adventure_game/assets/testLocations.txt", "");
+        });
+
+        String expectedMessage = "FILE NOT FOUND: HAZARDS";
+        assertTrue(exception.getMessage().contains(expectedMessage), 
+                   "Expected message to contain: " + expectedMessage);
 	}
 	
 	@Test
-	public void bothFileNotFoundException() throws FileNotFoundException {
-		FileReader testRead = new FileReader("", "");
+	public void bothFileNotFoundException() {
+//		FileReader testRead = new FileReader("", "");
+//		assertThrows(FileNotFoundException.class,()-> {
+//			new FileReader("", "");
+//		});
+		
+//		Exception exception = assertThrows(FileNotFoundException.class, () -> {
+//            new FileReader("", "");
+//        });
+//
+//        String expectedMessage = "FILE NOT FOUND: WORLD MAP";
+//        assertTrue(exception.getMessage().contains(expectedMessage), 
+//                   "Expected message to contain: " + expectedMessage);
 	}
 }

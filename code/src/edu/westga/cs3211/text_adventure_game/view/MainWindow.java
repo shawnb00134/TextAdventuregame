@@ -3,6 +3,9 @@ package edu.westga.cs3211.text_adventure_game.view;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import edu.westga.cs3211.text_adventure_game.model.Actions;
+import edu.westga.cs3211.text_adventure_game.viewmodel.ViewModel;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -26,7 +29,7 @@ public class MainWindow {
     private Button buttonTakeAction;
 
     @FXML
-    private ComboBox<?> comboBoxAvailableActions;
+    private ComboBox<Actions> comboBoxAvailableActions;
 
     @FXML
     private ImageView imageHealth;
@@ -37,13 +40,27 @@ public class MainWindow {
     @FXML
     private Label labelHealth;
 
+    private ViewModel viewModel;
+    
     @FXML
     void initialize() {
-        assert this.buttonTakeAction != null : "fx:id=\"button_TakeAction\" was not injected: check your FXML file 'MainWindow.fxml'.";
-        assert this.comboBoxAvailableActions != null : "fx:id=\"comboBox_AvailableActions\" was not injected: check your FXML file 'MainWindow.fxml'.";
-        assert this.imageHealth != null : "fx:id=\"image_Health\" was not injected: check your FXML file 'MainWindow.fxml'.";
-        assert this.textAreaMainText != null : "fx:id=\"textArea_MainText\" was not injected: check your FXML file 'MainWindow.fxml'.";
-        assert this.labelHealth != null : "fx:id=\"labelHealth\" was not injected: check your FXML file 'MainWindow.fxml'.";
-
+    	this.viewModel = new ViewModel();
+    	this.bindFields();
+    	this.buttonListener();
+    }
+    
+    private void bindFields() {
+    	this.textAreaMainText.textProperty().bind(this.viewModel.getLocationDescriptionProperty());
+    	this.comboBoxAvailableActions.setItems(this.viewModel.getMovementDirectionProperty());
+    	this.comboBoxAvailableActions.getSelectionModel().selectFirst();
+    	this.labelHealth.textProperty().bind(this.viewModel.getPlayerHealthProperty());
+    	this.viewModel.getSelectedDirection().bind(this.comboBoxAvailableActions.getSelectionModel().selectedItemProperty());
+    }
+    
+    private void buttonListener() {
+    	this.buttonTakeAction.setOnAction((ActionEvent event)-> {
+    		this.viewModel.movePlayerGetLocatinDescription();
+    		this.comboBoxAvailableActions.getSelectionModel().selectFirst();
+    	});
     }
 }

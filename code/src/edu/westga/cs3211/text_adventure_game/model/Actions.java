@@ -50,7 +50,6 @@ public enum Actions {
 	public static Actions getActionByIndex(int index) {
 		for (Actions action : Actions.values()) {
 			if (action.getIndexValue() == index) {
-//				return action.toString();
 				return action;
 			}
 		}

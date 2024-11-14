@@ -31,20 +31,12 @@ public class testGameManager {
 	
 	@Test
 	public void testGameManagerPlayerMovementEast() {
-		String locationName = "SmokeRoom";
-		String descriptionOne = "You went West. You enter a large square room with holes in the floor.";
-		String descriptionTwo = "The room is still filled with smoke.";
-		String[] connectedRooms = new String[] {"","DartRoom","","SmokeRoom"};
-		boolean hasHazard = false;
-		boolean isGoal = false;
-		
 		String hazardName = "SmokeRoom";
 		String description = "The room quickly fills with smoke. You cannot see any details in the room.";
 		int damage = 0;
 		
 		
 		GameManager gameManager = new GameManager();
-		Location playerLocation = new Location(locationName, descriptionOne, descriptionTwo, connectedRooms, hasHazard, null, isGoal);
 		Hazard hazard = new Hazard(hazardName, description, damage);
 		
 		gameManager.movePlayer(Actions.WEST);
