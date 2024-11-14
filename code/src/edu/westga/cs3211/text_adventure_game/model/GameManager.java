@@ -13,8 +13,10 @@ import java.util.List;
  * @version Fall 2024
  */
 public class GameManager {
-	private final String gameLocationsFileLocation = "src/edu/westga/cs3211/text_adventure_game/assets/testLocations.txt";
-	private final String gameHazardsFileLocation = "src/edu/westga/cs3211/text_adventure_game//assets/testHazards.txt";
+	//private final String testGameLocationsFileLocation = "src/edu/westga/cs3211/text_adventure_game/assets/testLocations.txt";
+	//private final String testGameHazardsFileLocation = "src/edu/westga/cs3211/text_adventure_game//assets/testHazards.txt";
+	private final String gameLocationsFileLocation = "src/edu/westga/cs3211/text_adventure_game/assets/gameLocations.txt";
+	private final String gameHazardsFileLocation = "src/edu/westga/cs3211/text_adventure_game//assets/hazards.txt";
 	
 	private final String startingLocation = "EntryRoom";
 	
