@@ -27,6 +27,7 @@ public class ViewModel {
 	private ListProperty<Actions> movementDirection;
 	private StringProperty playerHealth;
 	private ObjectProperty<Actions> selectedDirection;
+	private Boolean roomIsGoal;
 	
 	private GameManager gameManager;
 	
@@ -38,6 +39,7 @@ public class ViewModel {
 		this.movementDirection = new SimpleListProperty<>(FXCollections.observableArrayList(new ArrayList<>()));
 		this.playerHealth = new SimpleStringProperty();
 		this.selectedDirection = new SimpleObjectProperty<Actions>();
+		this.roomIsGoal = false;
 		this.gameManager = new GameManager();
 		
 		this.setupGame();
@@ -67,10 +69,27 @@ public class ViewModel {
 		} else if (selectedDirection == Actions.WEST) {
 		    this.gameManager.movePlayer(Actions.WEST);
 		}
-				
+		
 		this.setLocationDescriptionProperty();
 		this.setMovementDirectionList();
-		this.setPlayerHealthProperty();		
+		this.setPlayerHealthProperty();	
+		
+		this.checkForGoal();
+	}
+	
+	private void checkForGoal() {
+		if (this.gameManager.checkRoomForGoal()) {
+			this.roomIsGoal = true;
+		}
+	}
+	
+	/**
+	 * Tells the view if the room is the goal
+	 * 
+	 * @return true if room is goalRoom, else false
+	 */
+	public Boolean getCheckForGoal() {
+		return this.roomIsGoal;
 	}
 	
 	/**
@@ -124,5 +143,14 @@ public class ViewModel {
 	 */
 	public ObjectProperty<Actions> getSelectedDirection() {
 		return this.selectedDirection;
+	}
+	
+	/**
+	 * FOR TESTING PURPOSES ONLY
+	 * 
+	 * @param action direction to move player
+	 */
+	public void setSelectedDirection(Actions action) {
+		this.selectedDirection.set(action);
 	}
 }

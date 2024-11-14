@@ -61,6 +61,15 @@ public class MainWindow {
     	this.buttonTakeAction.setOnAction((ActionEvent event)-> {
     		this.viewModel.movePlayerGetLocatinDescription();
     		this.comboBoxAvailableActions.getSelectionModel().selectFirst();
+    		this.checkForWin();
     	});
+    }
+    
+    private void checkForWin() {
+    	if (this.viewModel.getCheckForGoal()) {
+    		this.buttonTakeAction.setDisable(this.viewModel.getCheckForGoal());
+    		this.comboBoxAvailableActions.setDisable(this.viewModel.getCheckForGoal());
+    	}
+    	
     }
 }
