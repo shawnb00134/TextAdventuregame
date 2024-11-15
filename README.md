@@ -1,5 +1,8 @@
 # TextAdventuregame
 
+Welcome to the Text Adventure Game!
+A simple text adventure game trying to be like the classic Zork. Who doesn't want to remake such a classic game? Here you move through a simple map trying to avoid hazards. In later implementations you just might be able to escape.
+
 Notes:
 The game is preset to the Game Map. For testing uncomment out the For Testing section and comment out the For Play section in the GameManager class.
 
