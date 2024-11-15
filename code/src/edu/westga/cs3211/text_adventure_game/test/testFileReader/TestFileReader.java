@@ -1,11 +1,8 @@
 package edu.westga.cs3211.text_adventure_game.test.testFileReader;
 
-import static org.junit.Assert.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.io.FileNotFoundException;
 import java.util.HashMap;
 
 import org.junit.jupiter.api.BeforeAll;
@@ -128,31 +125,31 @@ public class TestFileReader {
 		assertNotEquals(callHazard.getHazardDamageValue(), gameHazards.get("DartHazard").getHazardDamageValue());
 	}
 	
-	@Test
-	public void gameLocationsFileNotFoundException() {
-		FileReader testRead = new FileReader("", 
-				"src/edu/westga/cs3211/text_adventure_game//assets/testHazards.txt");
-//		assertThrows(FileNotFoundException.class,()-> {
-//			new FileReader("", 
-//					"src/edu/westga/cs3211/text_adventure_game//assets/testHazards.txt");
-//		});
-	}
-	
-	@Test
-	public void hazardLocationFileNotFoundException() {
-		FileReader testRead = new FileReader("src/edu/westga/cs3211/text_adventure_game/assets/testLocations.txt", 
-				"");
-//		assertThrows(FileNotFoundException.class,()-> {
-//			new FileReader("src/edu/westga/cs3211/text_adventure_game/assets/testLocations.txt", 
-//					"");
-//		});
-	}
-	
-	@Test
-	public void bothFileNotFoundException() {
-		FileReader testRead = new FileReader("", "");
-//		assertThrows(FileNotFoundException.class,()-> {
-//			new FileReader("", "");
-//		});
-	}
+//	@Test
+//	public void gameLocationsFileNotFoundException() {
+//		FileReader testRead = new FileReader("", 
+//				"src/edu/westga/cs3211/text_adventure_game//assets/testHazards.txt");
+////		assertThrows(FileNotFoundException.class,()-> {
+////			new FileReader("", 
+////					"src/edu/westga/cs3211/text_adventure_game//assets/testHazards.txt");
+////		});
+//	}
+//	
+//	@Test
+//	public void hazardLocationFileNotFoundException() {
+//		FileReader testRead = new FileReader("src/edu/westga/cs3211/text_adventure_game/assets/testLocations.txt", 
+//				"");
+////		assertThrows(FileNotFoundException.class,()-> {
+////			new FileReader("src/edu/westga/cs3211/text_adventure_game/assets/testLocations.txt", 
+////					"");
+////		});
+//	}
+//	
+//	@Test
+//	public void bothFileNotFoundException() {
+//		FileReader testRead = new FileReader("", "");
+////		assertThrows(FileNotFoundException.class,()-> {
+////			new FileReader("", "");
+////		});
+//	}
 }

@@ -16,11 +16,13 @@ public class GameManager {
 	//For Testing
 	//private final String gameLocationsFileLocation = "src/edu/westga/cs3211/text_adventure_game/assets/testLocations.txt";
 	//private final String gameHazardsFileLocation = "src/edu/westga/cs3211/text_adventure_game//assets/testHazards.txt";
+	
 	//For Play
 	private final String gameLocationsFileLocation = "src/edu/westga/cs3211/text_adventure_game/assets/gameLocations.txt";
 	private final String gameHazardsFileLocation = "src/edu/westga/cs3211/text_adventure_game//assets/hazards.txt";
 	
 	private final String startingLocation = "EntryRoom";
+	private final String gameOverYouLoseText = "Looks like you lost all of your health. Why am I talking. You're dead, you can't hear me.\nRelaunch the game to play again.";
 	
 	private FileReader gameFiles;
 	private Player player;
@@ -60,8 +62,14 @@ public class GameManager {
 	public String getLocationDescription() {
 		if (this.playerLocation.getHazardCheck()) {
 			this.player.reducePlayerHitPoint(this.gameHazards.get(this.playerLocation.getHazardName()).getHazardDamageValue());
+			
+			if (this.player.getPlayerHitPoints() <= 0) {
+				return this.gameOverYouLoseText;
+			}
+			
 			return this.gameHazards.get(this.playerLocation.getHazardName()).getHazardDescription();
 		}
+		
 		return this.gameLocations.get(this.playerLocation.getRoomName()).getRoomDescription();
 	}
 	

@@ -137,4 +137,32 @@ public class testGameManager {
 		
 		assertEquals(false, gameManager.checkRoomForGoal());
 	}
+	
+	@Test
+	public void testGameManagerKillPlayer() {
+		GameManager gameManager = new GameManager();
+		String gameOverText = "Looks like you lost all of your health. Why am I talking. You're dead, you can't hear me.\nRelaunch the game to play again.";;
+		
+		gameManager.movePlayer(Actions.EAST);
+		gameManager.getLocationDescription();
+		gameManager.movePlayer(Actions.WEST);
+		gameManager.getLocationDescription();
+		gameManager.movePlayer(Actions.EAST);
+		gameManager.getLocationDescription();
+		gameManager.movePlayer(Actions.WEST);
+		gameManager.getLocationDescription();
+		gameManager.movePlayer(Actions.EAST);
+		gameManager.getLocationDescription();
+		gameManager.movePlayer(Actions.WEST);
+		gameManager.getLocationDescription();
+		gameManager.movePlayer(Actions.EAST);
+		gameManager.getLocationDescription();
+		gameManager.movePlayer(Actions.WEST);
+		gameManager.getLocationDescription();
+		gameManager.movePlayer(Actions.EAST);
+		gameManager.getLocationDescription();
+		
+		assertEquals(0, gameManager.getPlayerHealthPoints());
+		assertEquals(gameOverText, gameManager.getLocationDescription());
+	}
 }

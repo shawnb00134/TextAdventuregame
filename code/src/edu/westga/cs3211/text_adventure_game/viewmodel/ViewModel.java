@@ -27,7 +27,7 @@ public class ViewModel {
 	private ListProperty<Actions> movementDirection;
 	private StringProperty playerHealth;
 	private ObjectProperty<Actions> selectedDirection;
-	private Boolean roomIsGoal;
+	private Boolean isGameOver;
 	
 	private GameManager gameManager;
 	
@@ -39,7 +39,7 @@ public class ViewModel {
 		this.movementDirection = new SimpleListProperty<>(FXCollections.observableArrayList(new ArrayList<>()));
 		this.playerHealth = new SimpleStringProperty();
 		this.selectedDirection = new SimpleObjectProperty<Actions>();
-		this.roomIsGoal = false;
+		this.isGameOver = false;
 		this.gameManager = new GameManager();
 		
 		this.setupGame();
@@ -74,12 +74,15 @@ public class ViewModel {
 		this.setMovementDirectionList();
 		this.setPlayerHealthProperty();	
 		
-		this.checkForGoal();
+		this.checkForEndGame();
 	}
 	
-	private void checkForGoal() {
+	private void checkForEndGame() {
 		if (this.gameManager.checkRoomForGoal()) {
-			this.roomIsGoal = true;
+			this.isGameOver = true;
+		}
+		if (this.gameManager.getPlayerHealthPoints() <= 0) {
+			this.isGameOver = true;
 		}
 	}
 	
@@ -89,7 +92,7 @@ public class ViewModel {
 	 * @return true if room is goalRoom, else false
 	 */
 	public Boolean getCheckForGoal() {
-		return this.roomIsGoal;
+		return this.isGameOver;
 	}
 	
 	/**

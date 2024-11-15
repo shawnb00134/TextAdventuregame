@@ -15,7 +15,7 @@ import javafx.scene.image.ImageView;
 
 /** Codebehind for the Main Window of the application.
  * 
- * @author CS 3211
+ * @author CS 3211 & Shawn Bretthauer
  * @version Fall 2024
  */
 public class MainWindow {

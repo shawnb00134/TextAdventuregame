@@ -95,8 +95,8 @@ false
 false
 ---
 Room09
-You enter a hidden room and see what you were looking for. An iron key.
-You enter a hidden room and see what you were looking for. An iron key.
+You enter a hidden room and see what you were looking for. An iron key. To be continued...
+You enter a hidden room and see what you were looking for. An iron key. To be continued...
 Room07,,,
 false
 
