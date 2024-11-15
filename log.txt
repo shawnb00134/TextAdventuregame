@@ -1,0 +1,207 @@
+commit 0edfc1c5ec8d002c2720401b3ff7fcbb45364891
+Author: Shawn Bretthauer <sb00134@my.westga.edu>
+Date:   Thu Nov 14 19:43:17 2024 -0500
+
+    Finished all Tasks
+    
+    Finished all testing and playthroughs.
+    Ok, I forgot the backlog.
+
+commit 779dfc8500db1fe25d309579a3e0144344f400b0
+Author: Shawn Bretthauer <sb00134@my.westga.edu>
+Date:   Thu Nov 14 18:24:31 2024 -0500
+
+    Maximum Coverage
+    
+    Have not achieved 100 percent coverage
+    but around 94.2 percent.
+
+commit eb38664454b884ce80eef01973398377f52893bb
+Author: Shawn Bretthauer <sb00134@my.westga.edu>
+Date:   Thu Nov 14 03:21:25 2024 -0500
+
+    Began Work on the Large Map
+    
+    Started working on the larger map.
+    Previous map for testing was
+    commented out.
+    Larger map has hit a few bumps.
+    Images of the maps are in the
+    documents folder.
+
+commit 5ec804ddd988b4db812b2eeba83d7e43b3c2d236
+Author: Shawn Bretthauer <sb00134@my.westga.edu>
+Date:   Thu Nov 14 00:11:36 2024 -0500
+
+    Win and VM Test
+    
+    Set the game to disable the combobox
+    and the Take Action button when the
+    player reaches the goal room.
+    Also tested the ViewModel in a limited
+    capacity. There is a method used for
+    testing purposes only.
+
+commit ba8be5256045bf33487149453badd3f75f517e7a
+Author: Shawn Bretthauer <sb00134@my.westga.edu>
+Date:   Wed Nov 13 23:11:30 2024 -0500
+
+    Linked View and ViewModel
+    
+    Completed linking the View and the ViewModel
+    and tested the project with a small map.
+
+commit b9593568c4dfe1e4a919c668a1d35d421c6174e8
+Author: Shawn Bretthauer <sb00134@my.westga.edu>
+Date:   Wed Nov 13 18:52:58 2024 -0500
+
+    Finish Testing GameManager
+    
+    Tested the GameManager class in its current
+    state with all tests passing. Code coverage
+    is good with the exception of the move North.
+
+commit 7698cc65d9b5ad1536eda59815aa3d7729768357
+Author: Shawn Bretthauer <sb00134@my.westga.edu>
+Date:   Wed Nov 13 16:27:33 2024 -0500
+
+    Forgot to Make Branch
+    
+    Forgot again... to make a Feature Branch.
+    Fixing that now.
+
+commit 84db8086716c714189b845ffad0ebf80c65c4575
+Author: Shawn Bretthauer <sb00134@my.westga.edu>
+Date:   Wed Nov 13 15:56:53 2024 -0500
+
+    No Feature Branch Work
+    
+    Worked on the GameManager tests.
+
+commit 278d0aecf82e496eea3a34f2d4ed4e5a3e05d19c
+Author: Shawn Bretthauer <sb00134@my.westga.edu>
+Date:   Mon Nov 11 19:43:29 2024 -0500
+
+    StackOverflow Error Resolved
+    
+    Found the StackOverflowError problem, but now
+    hit a roadblock on a NullPointerException. Not
+    sure where in the GameManager class the logic
+    issue is.
+    Did not bother to create a branch for this.
+
+commit cd7e7b392dacff57644c16bbc7644a8c661e30e2
+Author: Shawn Bretthauer <sb00134@my.westga.edu>
+Date:   Sat Nov 9 13:26:58 2024 -0500
+
+    Hit StackOverflowError
+    
+    Hit a block on testing the GameManager class.
+    It is a StackOverflowError and does not go into
+    further detail.
+    Other linking appears goods.
+
+commit c220df02091c29a5926c9f8b4be81f01b42713e6
+Author: Shawn Bretthauer <sb00134@my.westga.edu>
+Date:   Thu Nov 7 09:00:48 2024 -0500
+
+    Work on the GM and VM
+    
+    Forgot to create a branch. Crap.
+    Did some work attaching the GM to the VM. Possible
+    to remove some of the methods in the VM as they
+    may be redundent.
+
+commit 7a9bb81014e8aac1c7c3e33ded7e31e973f62367
+Author: Shawn Bretthauer <sb00134@my.westga.edu>
+Date:   Tue Nov 5 08:15:44 2024 -0500
+
+    Hazard, Player, FileReader, and Location
+    
+    The classes: Hazard, Player, FileReader, and Location have
+    tests implemented and working with known full code coverage.
+    When checking for code coverage overall it currently is
+    at 76.5%.
+
+commit c3a6d9bea0fd5064fb45c510e933c97dd41fe3b0
+Author: Shawn Bretthauer <sb00134@my.westga.edu>
+Date:   Tue Nov 5 05:09:03 2024 -0500
+
+    Started on GameManager Implementation
+    
+    Began implementing GameManager with some alterations to Location
+    class and Actions enum.
+
+commit 2ee70ac56f6fa1cd76c4de1853ed69b257a8064b
+Author: Shawn Bretthauer <sb00134@my.westga.edu>
+Date:   Tue Nov 5 03:31:55 2024 -0500
+
+    Added Test to testFileReader
+    
+    Added some tests to testFileReader and
+    forgot to create a seperate branch.
+
+commit 001a4a1d26c3f4abbee4d195f443b04b2913ceaa
+Author: Shawn Bretthauer <sb00134@my.westga.edu>
+Date:   Fri Nov 1 22:02:44 2024 -0400
+
+    Fix FileReader
+    
+    Fix the file location issue and BeforeAll problems.
+
+commit 47796cf22839d76cbc6ec82d63518024b85a1702
+Author: Shawn Bretthauer <sb00134@my.westga.edu>
+Date:   Fri Nov 1 16:34:23 2024 -0400
+
+    Began Testing FileRead, Location, and Hazard
+    
+    Simple tests have been setup for the Location and Hazard class
+    with passing results.
+    Test has been setup for FileRead class but with failing
+    results with an error of one of the HashMap returning null.
+    Need to investigate.
+
+commit d0d0bb76695922fa485e8d75744a9ef1e2efb90d
+Author: Shawn Bretthauer <sb00134@my.westga.edu>
+Date:   Fri Nov 1 14:39:48 2024 -0400
+
+    FileReader, Locations, and Hazards
+    
+    Completed the classes: FileReader, Locations, and Hazards
+    and will begin testing.
+
+commit ad5acc03180cb9bebf23aa4519702fda1e5ffbd2
+Author: Shawn Bretthauer <sb00134@my.westga.edu>
+Date:   Fri Nov 1 12:39:55 2024 -0400
+
+    Worked on FileReader and Location classes
+    
+    Started on the FileReader class trying to be able to load in
+    the gameMap text file to create the Locations.
+    This lead to more work being done in Locations to add more
+    needed properties.
+
+commit 3616e8e820fa9818a8d47d925de34b9bff3134e4
+Author: Shawn Bretthauer <sb00134@my.westga.edu>
+Date:   Fri Nov 1 11:18:04 2024 -0400
+
+    GUI Setup Pending
+    
+    Setup a possible GUI to work on pending on what
+    Dr. Corley says about creative freedom with it.
+
+commit cc072d928414152dc291da16f38fe66832cdb9c9
+Author: Shawn Bretthauer <sb00134@my.westga.edu>
+Date:   Fri Nov 1 08:56:30 2024 -0400
+
+    Added Important Classes and some Structure
+    
+    Added all or most of the important classes for the game with
+    some implementation of methods and properties. Will need to
+    add a resources folder for the room and hazard text files.
+
+commit 4398ffade51dad5cf7ace270cbc9df431ef8186e
+Author: Shawn <sb00134@my.westga.edu>
+Date:   Fri Nov 1 07:45:26 2024 -0400
+
+    Initial commit
