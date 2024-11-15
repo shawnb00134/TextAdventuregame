@@ -1,3 +1,21 @@
+commit 297e9e33552f009164ef18ab3974a431b594d27e
+Author: Shawn Bretthauer <sb00134@my.westga.edu>
+Date:   Thu Nov 14 19:49:11 2024 -0500
+
+    Updated README
+    
+    Forgot to add a simple description in
+    the readme file. Updated and will recreate
+    the git log without an update for that.
+
+commit 9754664429a57b2b30e9b59923950dfddce9513b
+Author: Shawn Bretthauer <sb00134@my.westga.edu>
+Date:   Thu Nov 14 19:45:22 2024 -0500
+
+    Git Log Created
+    
+    Created the git log and pushing to GitHub.
+
 commit 0edfc1c5ec8d002c2720401b3ff7fcbb45364891
 Author: Shawn Bretthauer <sb00134@my.westga.edu>
 Date:   Thu Nov 14 19:43:17 2024 -0500
