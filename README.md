@@ -37,4 +37,5 @@ Eclipse
 
 
 Notes to self:
-Set up Location to have Hazard in place of the name.
+-Set up Location to have Hazard in place of the name.
+-Set up Location as a digraph? Currently using a Hashmap.
